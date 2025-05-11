@@ -1,0 +1,479 @@
+[
+    {
+        "job_title": "Junior Data Engineer with AI Focus",
+        "company": "Kenz'up",
+        "location": "Casablanca, Casablanca-Settat, Morocco · 1 week ago · Over 100 applicants",
+        "skills": [
+            "python",
+            "ai",
+            "pandas",
+            "numpy",
+            "machine learning",
+            "docker",
+            "agile",
+            "etl",
+            "gcp",
+            "sql",
+            "azure",
+            "aws",
+            "communication",
+            "tensorflow",
+            "git",
+            "pytorch"
+        ],
+        "url": "https://www.linkedin.com/jobs/search/?currentJobId=4214033879&keywords=Data%20Engineer&location=Morocco",
+        "recruiters": []
+    },
+    {
+        "job_title": "Data DevOps Engineer",
+        "company": "CIH BANK",
+        "location": "Casablanca, Casablanca-Settat, Morocco · 1 year ago",
+        "skills": [
+            "python",
+            "scala",
+            "ci/cd",
+            "bash",
+            "ansible",
+            "spark",
+            "sql",
+            "zsh",
+            "ubuntu",
+            "project management",
+            "devops"
+        ],
+        "url": "https://www.linkedin.com/jobs/search/?currentJobId=3918450440&keywords=Data%20Engineer&location=Morocco",
+        "recruiters": []
+    },
+    {
+        "job_title": "Consultant Data Engineer",
+        "company": "GEC _ Global Experts Consulting",
+        "location": "Mechouar, Casablanca-Settat, Morocco · 2 weeks ago · 65 applicants",
+        "skills": [
+            "dbt",
+            "python",
+            "scala",
+            "hadoop",
+            "ansible",
+            "spark",
+            "sql"
+        ],
+        "url": "https://www.linkedin.com/jobs/search/?currentJobId=4208277343&keywords=Data%20Engineer&location=Morocco",
+        "recruiters": [
+            {
+                "name": "Omar Bennani",
+                "title": "Headhunter 🎯 📢| Talent Acquisition | Talent Manager | GEC",
+                "profile_url": "https://www.linkedin.com/in/omar-bennani-a45805121?miniProfileUrn=urn%3Ali%3Afs_miniProfile%3AACoAAB4yl5UBRQXGE4iz3ZNVfCkgg05kLGOaPEc"
+            }
+        ]
+    },
+    {
+        "job_title": "I4.0 - Data Engineer",
+        "company": "Lear Corporation",
+        "location": "Rabat, Rabat-Salé-Kénitra, Morocco · Reposted 1 month ago · Over 100 people clicked apply",
+        "skills": [
+            "python",
+            "r",
+            "agile",
+            "etl"
+        ],
+        "url": "https://www.linkedin.com/jobs/search/?currentJobId=4158203737&keywords=Data%20Engineer&location=Morocco",
+        "recruiters": []
+    },
+    {
+        "job_title": "Artificial Intelligence Engineer",
+        "company": "Worky",
+        "location": "EMEA · 6 days ago · Over 100 applicants",
+        "skills": [
+            "ai",
+            "computer vision",
+            "communication",
+            "machine learning",
+            "azure",
+            "databricks",
+            "model deployment"
+        ],
+        "url": "https://www.linkedin.com/jobs/search/?currentJobId=4214976499&keywords=Data%20Engineer&location=Morocco",
+        "recruiters": [
+            {
+                "name": "Rick Evans",
+                "title": "Executive Product Leader | HR Tech SaaS | Innovating Solutions to Drive Business Growth and Transform Workplace Engagement | Product Management Now available for contract engagements through Worky",
+                "profile_url": "https://www.linkedin.com/in/rickevans?miniProfileUrn=urn%3Ali%3Afs_miniProfile%3AACoAAADHRB8BFsEFMngcWjI98L7qnt4hS97eCuI"
+            }
+        ]
+    },
+    {
+        "job_title": "Junior Data Engineer - Casablanca",
+        "company": "Artefact",
+        "location": "Casablanca, Casablanca-Settat, Morocco · Reposted 2 weeks ago · Over 100 applicants",
+        "skills": [
+            "docker",
+            "redshift",
+            "mysql",
+            "airflow",
+            "databricks",
+            "elasticsearch",
+            "gcp",
+            "azure",
+            "aws",
+            "communication",
+            "ci/cd",
+            "postgresql",
+            "machine learning",
+            "agile",
+            "bigquery",
+            "sql",
+            "go",
+            "python",
+            "ai",
+            "kubernetes",
+            "redis",
+            "ansible",
+            "spark",
+            "devops"
+        ],
+        "url": "https://www.linkedin.com/jobs/search/?currentJobId=3928980947&keywords=Data%20Engineer&location=Morocco",
+        "recruiters": []
+    },
+    {
+        "job_title": "Chef Projet DATA / DATA ENGINEER",
+        "company": "Altados by Niji",
+        "location": "Casablanca, Casablanca-Settat, Morocco · 3 months ago · 77 people clicked apply",
+        "skills": [
+            "chef",
+            "collaboration"
+        ],
+        "url": "https://www.linkedin.com/jobs/search/?currentJobId=4136384524&keywords=Data%20Engineer&location=Morocco",
+        "recruiters": []
+    },
+    {
+        "job_title": "Data Engineer",
+        "company": "Altados by Niji",
+        "location": "Casablanca, Casablanca-Settat, Morocco · 3 months ago · Over 100 people clicked apply",
+        "skills": [
+            "airflow"
+        ],
+        "url": "https://www.linkedin.com/jobs/search/?currentJobId=4136388012&keywords=Data%20Engineer&location=Morocco&start=25",
+        "recruiters": []
+    },
+    {
+        "job_title": "Data DevOps Engineer",
+        "company": "CIH BANK",
+        "location": "Casablanca, Casablanca-Settat, Morocco · 1 year ago",
+        "skills": [
+            "python",
+            "scala",
+            "ci/cd",
+            "bash",
+            "ansible",
+            "spark",
+            "sql",
+            "zsh",
+            "ubuntu",
+            "project management",
+            "devops"
+        ],
+        "url": "https://www.linkedin.com/jobs/search/?currentJobId=3918450440&keywords=Data%20Engineer&location=Morocco",
+        "recruiters": []
+    },
+    {
+        "job_title": "Consultant Data Engineer",
+        "company": "GEC _ Global Experts Consulting",
+        "location": "Mechouar, Casablanca-Settat, Morocco · 2 weeks ago · 65 applicants",
+        "skills": [
+            "dbt",
+            "python",
+            "scala",
+            "hadoop",
+            "ansible",
+            "spark",
+            "sql"
+        ],
+        "url": "https://www.linkedin.com/jobs/search/?currentJobId=4208277343&keywords=Data%20Engineer&location=Morocco",
+        "recruiters": [
+            {
+                "name": "Omar Bennani",
+                "title": "Headhunter 🎯 📢| Talent Acquisition | Talent Manager | GEC",
+                "profile_url": "https://www.linkedin.com/in/omar-bennani-a45805121?miniProfileUrn=urn%3Ali%3Afs_miniProfile%3AACoAAB4yl5UBRQXGE4iz3ZNVfCkgg05kLGOaPEc"
+            }
+        ]
+    },
+    {
+        "job_title": "I4.0 - Data Engineer",
+        "company": "Lear Corporation",
+        "location": "Rabat, Rabat-Salé-Kénitra, Morocco · Reposted 1 month ago · Over 100 people clicked apply",
+        "skills": [
+            "python",
+            "r",
+            "agile",
+            "etl"
+        ],
+        "url": "https://www.linkedin.com/jobs/search/?currentJobId=4158203737&keywords=Data%20Engineer&location=Morocco",
+        "recruiters": []
+    },
+    {
+        "job_title": "Artificial Intelligence Engineer",
+        "company": "Worky",
+        "location": "EMEA · 6 days ago · Over 100 applicants",
+        "skills": [
+            "ai",
+            "computer vision",
+            "communication",
+            "machine learning",
+            "azure",
+            "databricks",
+            "model deployment"
+        ],
+        "url": "https://www.linkedin.com/jobs/search/?currentJobId=4214976499&keywords=Data%20Engineer&location=Morocco",
+        "recruiters": [
+            {
+                "name": "Rick Evans",
+                "title": "Executive Product Leader | HR Tech SaaS | Innovating Solutions to Drive Business Growth and Transform Workplace Engagement | Product Management Now available for contract engagements through Worky",
+                "profile_url": "https://www.linkedin.com/in/rickevans?miniProfileUrn=urn%3Ali%3Afs_miniProfile%3AACoAAADHRB8BFsEFMngcWjI98L7qnt4hS97eCuI"
+            }
+        ]
+    },
+    {
+        "job_title": "Junior Data Engineer - Casablanca",
+        "company": "Artefact",
+        "location": "Casablanca, Casablanca-Settat, Morocco · Reposted 2 weeks ago · Over 100 applicants",
+        "skills": [
+            "docker",
+            "redshift",
+            "mysql",
+            "airflow",
+            "databricks",
+            "elasticsearch",
+            "gcp",
+            "azure",
+            "aws",
+            "communication",
+            "ci/cd",
+            "postgresql",
+            "machine learning",
+            "agile",
+            "bigquery",
+            "sql",
+            "go",
+            "python",
+            "ai",
+            "kubernetes",
+            "redis",
+            "ansible",
+            "spark",
+            "devops"
+        ],
+        "url": "https://www.linkedin.com/jobs/search/?currentJobId=3928980947&keywords=Data%20Engineer&location=Morocco",
+        "recruiters": []
+    },
+    {
+        "job_title": "Chef Projet DATA / DATA ENGINEER",
+        "company": "Altados by Niji",
+        "location": "Casablanca, Casablanca-Settat, Morocco · 3 months ago · 77 people clicked apply",
+        "skills": [
+            "chef",
+            "collaboration"
+        ],
+        "url": "https://www.linkedin.com/jobs/search/?currentJobId=4136384524&keywords=Data%20Engineer&location=Morocco",
+        "recruiters": []
+    },
+    {
+        "job_title": "Data Engineer",
+        "company": "Altados by Niji",
+        "location": "Casablanca, Casablanca-Settat, Morocco · 3 months ago · Over 100 people clicked apply",
+        "skills": [],
+        "url": "https://www.linkedin.com/jobs/search/?currentJobId=4136388010&keywords=Data%20Engineer&location=Morocco&start=50",
+        "recruiters": []
+    },
+    {
+        "job_title": "Data DevOps Engineer",
+        "company": "CIH BANK",
+        "location": "Casablanca, Casablanca-Settat, Morocco · 1 year ago",
+        "skills": [
+            "python",
+            "scala",
+            "ci/cd",
+            "bash",
+            "ansible",
+            "spark",
+            "sql",
+            "zsh",
+            "ubuntu",
+            "project management",
+            "devops"
+        ],
+        "url": "https://www.linkedin.com/jobs/search/?currentJobId=3918450440&keywords=Data%20Engineer&location=Morocco",
+        "recruiters": []
+    },
+    {
+        "job_title": "Consultant Data Engineer",
+        "company": "GEC _ Global Experts Consulting",
+        "location": "Mechouar, Casablanca-Settat, Morocco · 2 weeks ago · 65 applicants",
+        "skills": [
+            "dbt",
+            "python",
+            "scala",
+            "hadoop",
+            "ansible",
+            "spark",
+            "sql"
+        ],
+        "url": "https://www.linkedin.com/jobs/search/?currentJobId=4208277343&keywords=Data%20Engineer&location=Morocco",
+        "recruiters": [
+            {
+                "name": "Omar Bennani",
+                "title": "Headhunter 🎯 📢| Talent Acquisition | Talent Manager | GEC",
+                "profile_url": "https://www.linkedin.com/in/omar-bennani-a45805121?miniProfileUrn=urn%3Ali%3Afs_miniProfile%3AACoAAB4yl5UBRQXGE4iz3ZNVfCkgg05kLGOaPEc"
+            }
+        ]
+    },
+    {
+        "job_title": "I4.0 - Data Engineer",
+        "company": "Lear Corporation",
+        "location": "Rabat, Rabat-Salé-Kénitra, Morocco · Reposted 1 month ago · Over 100 people clicked apply",
+        "skills": [
+            "python",
+            "r",
+            "agile",
+            "etl"
+        ],
+        "url": "https://www.linkedin.com/jobs/search/?currentJobId=4158203737&keywords=Data%20Engineer&location=Morocco",
+        "recruiters": []
+    },
+    {
+        "job_title": "Artificial Intelligence Engineer",
+        "company": "Worky",
+        "location": "EMEA · 6 days ago · Over 100 applicants",
+        "skills": [
+            "ai",
+            "computer vision",
+            "communication",
+            "machine learning",
+            "azure",
+            "databricks",
+            "model deployment"
+        ],
+        "url": "https://www.linkedin.com/jobs/search/?currentJobId=4214976499&keywords=Data%20Engineer&location=Morocco",
+        "recruiters": [
+            {
+                "name": "Rick Evans",
+                "title": "Executive Product Leader | HR Tech SaaS | Innovating Solutions to Drive Business Growth and Transform Workplace Engagement | Product Management Now available for contract engagements through Worky",
+                "profile_url": "https://www.linkedin.com/in/rickevans?miniProfileUrn=urn%3Ali%3Afs_miniProfile%3AACoAAADHRB8BFsEFMngcWjI98L7qnt4hS97eCuI"
+            }
+        ]
+    },
+    {
+        "job_title": "Junior Data Engineer - Casablanca",
+        "company": "Artefact",
+        "location": "Casablanca, Casablanca-Settat, Morocco · Reposted 2 weeks ago · Over 100 applicants",
+        "skills": [
+            "docker",
+            "redshift",
+            "mysql",
+            "airflow",
+            "databricks",
+            "elasticsearch",
+            "gcp",
+            "azure",
+            "aws",
+            "communication",
+            "ci/cd",
+            "postgresql",
+            "machine learning",
+            "agile",
+            "bigquery",
+            "sql",
+            "go",
+            "python",
+            "ai",
+            "kubernetes",
+            "redis",
+            "ansible",
+            "spark",
+            "devops"
+        ],
+        "url": "https://www.linkedin.com/jobs/search/?currentJobId=3928980947&keywords=Data%20Engineer&location=Morocco",
+        "recruiters": []
+    },
+    {
+        "job_title": "Chef Projet DATA / DATA ENGINEER",
+        "company": "Altados by Niji",
+        "location": "Casablanca, Casablanca-Settat, Morocco · 3 months ago · 77 people clicked apply",
+        "skills": [
+            "chef",
+            "collaboration"
+        ],
+        "url": "https://www.linkedin.com/jobs/search/?currentJobId=4136384524&keywords=Data%20Engineer&location=Morocco",
+        "recruiters": []
+    },
+    {
+        "job_title": "Machine Learning Engineer, Bot & Fraud Detection",
+        "company": "Castle",
+        "location": "EMEA · 3 weeks ago · Over 100 applicants",
+        "skills": [
+            "javascript",
+            "ai",
+            "anomaly detection",
+            "excel",
+            "machine learning",
+            "reinforcement learning",
+            "prompt engineering"
+        ],
+        "url": "https://www.linkedin.com/jobs/search/?currentJobId=4202775114&keywords=Data%20Engineer&location=Morocco&start=75",
+        "recruiters": []
+    },
+    {
+        "job_title": "Data DevOps Engineer",
+        "company": "CIH BANK",
+        "location": "Casablanca, Casablanca-Settat, Morocco · 1 year ago",
+        "skills": [
+            "python",
+            "scala",
+            "ci/cd",
+            "bash",
+            "ansible",
+            "spark",
+            "sql",
+            "zsh",
+            "ubuntu",
+            "project management",
+            "devops"
+        ],
+        "url": "https://www.linkedin.com/jobs/search/?currentJobId=3918450440&keywords=Data%20Engineer&location=Morocco",
+        "recruiters": []
+    },
+    {
+        "job_title": "Consultant Data Engineer",
+        "company": "GEC _ Global Experts Consulting",
+        "location": "Mechouar, Casablanca-Settat, Morocco · 2 weeks ago · 65 applicants",
+        "skills": [
+            "dbt",
+            "python",
+            "scala",
+            "hadoop",
+            "ansible",
+            "spark",
+            "sql"
+        ],
+        "url": "https://www.linkedin.com/jobs/search/?currentJobId=4208277343&keywords=Data%20Engineer&location=Morocco",
+        "recruiters": [
+            {
+                "name": "Omar Bennani",
+                "title": "Headhunter 🎯 📢| Talent Acquisition | Talent Manager | GEC",
+                "profile_url": "https://www.linkedin.com/in/omar-bennani-a45805121?miniProfileUrn=urn%3Ali%3Afs_miniProfile%3AACoAAB4yl5UBRQXGE4iz3ZNVfCkgg05kLGOaPEc"
+            }
+        ]
+    },
+    {
+        "job_title": "I4.0 - Data Engineer",
+        "company": "Lear Corporation",
+        "location": "Rabat, Rabat-Salé-Kénitra, Morocco · Reposted 1 month ago · Over 100 people clicked apply",
+        "skills": [
+            "python",
+            "r",
+            "agile",
+            "etl"
+        ],
+        "url": "https://www.linkedin.com/jobs/search/?currentJobId=4158203737&keywords=Data%20Engineer&location=Morocco",
+        "recruiters": []
+    }
+]
