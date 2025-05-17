@@ -1,6 +1,6 @@
 # Career Recommender API (FastAPI)
 
-### 📦 How to Run
+###  How to Run
 
 1. Clone/download project
 2. Place model files in `/app`
@@ -12,17 +12,20 @@
 
 5. Visit Swagger docs: [http://localhost:8000/docs](http://localhost:8000/docs)
 
-### 📬 Endpoint
+###  Endpoint
 
 - `POST /recommend`
-Request Body
+
+- `Request Body`
 Send a POST request to /recommend with a JSON payload like this:
 
 {
   "skills": ["python", "sql"],
   "interests": ["ai", "analytics"]
 }
-Response
+
+
+- `Response`
 The API will return career predictions and the top 5 matched jobs from LinkedIn. A sample response looks like this:
 
 {
@@ -51,4 +54,5 @@ The API will return career predictions and the top 5 matched jobs from LinkedIn.
 }
 
 
+### 
 If you encounter issues related to large file uploads or missing model files, ensure that you have placed all required files (career_model.pkl, glove.6B.100d.txt, etc.) in the /app directory.
