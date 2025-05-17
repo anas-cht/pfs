@@ -12,7 +12,7 @@ import lombok.*;
 @NoArgsConstructor
 @Entity
 @Table(name = "messages")
-public class message {
+public class Message {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,5 +24,6 @@ public class message {
     @ManyToOne(fetch = FetchType.LAZY)  // Changed to LAZY for better performance
     @JoinColumn(name = "user_id", nullable = false)
     @JsonIgnore // Foreign key in message table
-    private user user;
+    private User user;
+
 }

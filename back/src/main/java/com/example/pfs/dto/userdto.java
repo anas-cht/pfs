@@ -1,8 +1,6 @@
 package com.example.pfs.dto;
 
 
-import com.example.pfs.model.Userinfo;
-import com.example.pfs.model.message;
 import lombok.*;
 
 import java.util.List;

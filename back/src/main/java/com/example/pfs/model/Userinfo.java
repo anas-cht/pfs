@@ -22,10 +22,6 @@ public class Userinfo{
     @OneToOne(fetch = FetchType.LAZY)  // Changed to LAZY for performance
     @JoinColumn(name = "user_id", nullable = false, unique = true)
     @JsonIgnore  // Prevents infinite recursion in JSON
-    private user user;
-//
-//    public void setUser(user user) {
-//        this.user = user;
-//        user.setUserinfo(this);
-//    }
+    private User user;
+
 }

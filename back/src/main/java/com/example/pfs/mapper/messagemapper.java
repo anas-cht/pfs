@@ -1,10 +1,10 @@
 package com.example.pfs.mapper;
 
 import com.example.pfs.dto.messagedto;
-import com.example.pfs.model.message;
+import com.example.pfs.model.Message;
 
 public class messagemapper {
-    public static messagedto mapmessagetodto(message message){
+    public static messagedto mapmessagetodto(Message message){
         return new messagedto(
                 message.getId(),
                 message.getMessage(),

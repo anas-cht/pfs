@@ -1,14 +1,12 @@
 package com.example.pfs.mapper;
 
 import com.example.pfs.dto.userdto;
-import com.example.pfs.model.user;
-
-import java.util.Optional;
+import com.example.pfs.model.User;
 
 public class usermapper {
 
-    public static user mapToUser(userdto userDto) {
-        user user = new user();
+    public static User mapToUser(userdto userDto) {
+        User user = new User();
         user.setId(userDto.getId());
         user.setUsername(userDto.getUsername());
         user.setFullname(userDto.getFullname());
@@ -19,7 +17,7 @@ public class usermapper {
         return user;
     }
 
-    public static userdto mapToDto(user user) {
+    public static userdto mapToDto(User user) {
         userdto userdto = new userdto();
         userdto.setId(user.getId());
         userdto.setUsername(user.getUsername());

@@ -2,7 +2,6 @@ package com.example.pfs.dto;
 
 
 import lombok.*;
-import com.example.pfs.model.user;
 
 
 @Data

@@ -1,8 +1,6 @@
 package com.example.pfs.service;
 
 import com.example.pfs.dto.userdto;
-import com.example.pfs.model.user;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
 
 import java.util.List;
 

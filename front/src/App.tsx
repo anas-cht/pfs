@@ -40,7 +40,7 @@ function App() {
                 <Route path="/research" element={<PrivateRoute><ResearchAssistant /></PrivateRoute>} />
                 <Route path="/about" element={<About />} />
                 <Route path="/account" element={<PrivateRoute><Account /></PrivateRoute>} />
-                <Route path="/preferences" element={<PrivateRoute><Preferences /></PrivateRoute>} />
+                <Route path="/preferences" element={<Preferences />} />
                 <Route path="/signin" element={<ProtectedDashboardRoute ><SignIn /></ProtectedDashboardRoute >} />
                 <Route path="/signup" element={<ProtectedDashboardRoute ><SignUp /></ProtectedDashboardRoute>} />
               </Routes>

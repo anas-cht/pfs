@@ -5,7 +5,7 @@ package com.example.pfs.service;
 import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.oauth2.core.user.OAuth2User;
-import com.example.pfs.model.user;
+import com.example.pfs.model.User;
 
 
 import java.util.Collection;
@@ -13,10 +13,10 @@ import java.util.Map;
 
 @Data
 public class CustomOAuth2User implements OAuth2User {
-    private user user;
+    private User user;
     private Map<String, Object> attributes;
 
-    public CustomOAuth2User(user user, Map<String, Object> attributes) {
+    public CustomOAuth2User(User user, Map<String, Object> attributes) {
         this.user = user;
         this.attributes = attributes;
     }

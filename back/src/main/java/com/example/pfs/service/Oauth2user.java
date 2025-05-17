@@ -1,22 +1,17 @@
 package com.example.pfs.service;
 
-import com.example.pfs.dto.userdto;
-import com.example.pfs.mapper.usermapper;
-import com.example.pfs.model.user;
+import com.example.pfs.model.User;
 import com.example.pfs.repository.userrepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.oauth2.client.userinfo.DefaultOAuth2UserService;
 import org.springframework.security.oauth2.client.userinfo.OAuth2UserRequest;
 import org.springframework.security.oauth2.client.userinfo.OAuth2UserService;
 import org.springframework.security.oauth2.core.OAuth2AuthenticationException;
-import org.springframework.security.oauth2.core.OAuth2Error;
 import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.stereotype.Service;
 
 import java.util.Map;
-import java.util.UUID;
 
 @Service
 public class Oauth2user implements OAuth2UserService<OAuth2UserRequest, OAuth2User> {
@@ -45,10 +40,10 @@ public class Oauth2user implements OAuth2UserService<OAuth2UserRequest, OAuth2Us
                 fullname = email.split("@")[0]; // Default to email prefix if name not provided
             }
             final String fullname1=fullname;
-            user existingUser = ur.findByEmail(email)
+            User existingUser = ur.findByEmail(email)
                     .orElseGet(() -> {
                         // Create new user if not found
-                        user newUser = new user();
+                        User newUser = new User();
                         newUser.setEmail(email);
                         newUser.setUsername(email.split("@")[0]);
                         newUser.setFullname(fullname1);

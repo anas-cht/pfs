@@ -3,20 +3,11 @@ package com.example.pfs.controller;
 
 import com.example.pfs.dto.loginrequest;
 import com.example.pfs.dto.userdto;
-import com.example.pfs.exception.DuplicateFieldException;
-import com.example.pfs.model.user;
-import com.example.pfs.service.userservice;
 import com.example.pfs.service.userserviceimpl;
-import jakarta.servlet.http.HttpSession;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
-import org.springframework.http.ProblemDetail;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.web.ErrorResponse;
 import org.springframework.web.bind.annotation.*;
-import com.example.pfs.service.CustomOAuth2User;
 
 import java.util.List;
 

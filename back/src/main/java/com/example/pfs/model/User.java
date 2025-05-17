@@ -13,7 +13,7 @@ import java.util.List;
 @NoArgsConstructor
 @Entity
 @Table(name = "Users")
-public class user {
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id ;
@@ -30,11 +30,11 @@ public class user {
     @Column()
     private String password ;
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<message> messages;
+    private List<Message> messages;
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private Userinfo userinfo;
 
-    public void addMessage(message message) {
+    public void addMessage(Message message) {
         messages.add(message);
         message.setUser(this);
     }

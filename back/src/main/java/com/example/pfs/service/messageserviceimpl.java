@@ -3,8 +3,8 @@ package com.example.pfs.service;
 import com.example.pfs.dto.messagedto;
 import com.example.pfs.exception.resourcenotfoundexception;
 import com.example.pfs.mapper.messagemapper;
-import com.example.pfs.model.message;
-import com.example.pfs.model.user;
+import com.example.pfs.model.Message;
+import com.example.pfs.model.User;
 import com.example.pfs.repository.messagerepository;
 import com.example.pfs.repository.userrepository;
 import lombok.Data;
@@ -25,12 +25,12 @@ public class messageserviceimpl implements messageservice{
 
     @Override
     public messagedto addmessage(messagedto messagedto) {
-        user user = userRepository.findById(messagedto.getUserid())
+        User user = userRepository.findById(messagedto.getUserid())
                 .orElseThrow(() -> new resourcenotfoundexception("User not found"));
-        message message = new message();
+        Message message = new Message();
         message.setMessage(messagedto.getMessage());
         message.setUser(user);
-        message savedmessage= ur.save(message);
+        Message savedmessage= ur.save(message);
         return messagemapper.mapmessagetodto(savedmessage);
     }
 }
