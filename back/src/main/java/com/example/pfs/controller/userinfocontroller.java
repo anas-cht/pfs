@@ -35,7 +35,7 @@ public class userinfocontroller {
         return ResponseEntity.ok(userinfodto);
     }
 
-    @GetMapping("/userinfo/{userId}/recommend")
+    @GetMapping("/recommend/{userId}")
     public ResponseEntity<userinfodto> recommendCareer(@PathVariable Long userId) {
         Userinfo userinfo = userinforepository.findByUserId(userId)
                 .orElseThrow(() -> new resourcenotfoundexception("User not found"));

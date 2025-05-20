@@ -1,87 +1,107 @@
 import React, { useState, useMemo } from 'react';
-import { Search, Star, BookOpen, Link as LinkIcon } from 'lucide-react';
+import { Star, BookOpen, FileText, Link as LinkIcon, Sparkles } from 'lucide-react';
 import coursesData from '../data/coursera_courses_detailed.json';
+import papersData from '../data/arxiv_it_research.json';
 
 function ResearchAssistant() {
-  const [searchTerm, setSearchTerm] = useState('');
-  const [showSuggestions, setShowSuggestions] = useState(false);
+  const [courseSearch, setCourseSearch] = useState('');
+  const [paperSearch, setPaperSearch] = useState('');
+  const [showCourseSuggestions, setShowCourseSuggestions] = useState(false);
+  const [showPaperSuggestions, setShowPaperSuggestions] = useState(false);
 
-  const searchLower = searchTerm.toLowerCase();
+  const courseLower = courseSearch.toLowerCase();
+  const paperLower = paperSearch.toLowerCase();
 
-  // 🔍 Suggestions: from entire dataset
-  const suggestions = useMemo(() => {
-    if (!searchLower.trim()) return [];
-
-    const allSuggestions = new Set<string>();
+  const courseSuggestions = useMemo(() => {
+    if (!courseLower.trim()) return [];
+    const all = new Set<string>();
 
     coursesData.forEach((item) => {
-      if (item.Title?.toLowerCase().includes(searchLower)) {
-        allSuggestions.add(item.Title);
-      }
-      if (item.Provider?.toLowerCase().includes(searchLower)) {
-        allSuggestions.add(item.Provider);
-      }
+      if (item.Title?.toLowerCase().includes(courseLower)) all.add(item.Title);
+      if (item.Provider?.toLowerCase().includes(courseLower)) all.add(item.Provider);
       if (item.Skills) {
-        item.Skills.split(',').forEach((skill) => {
-          const trimmedSkill = skill.trim();
-          if (trimmedSkill.toLowerCase().includes(searchLower)) {
-            allSuggestions.add(trimmedSkill);
-          }
+        item.Skills.split(',').forEach((s) => {
+          if (s.trim().toLowerCase().includes(courseLower)) all.add(s.trim());
         });
       }
     });
 
-    return Array.from(allSuggestions).slice(0, 5);
-  }, [searchLower]);
+    return Array.from(all).slice(0, 5);
+  }, [courseLower]);
 
-  // 🎯 Filter all courses on search
-  const filteredResearch = useMemo(() => {
-    if (!searchLower.trim()) {
+  const filteredCourses = useMemo(() => {
+    if (!courseLower.trim()) {
       return [...coursesData]
         .sort((a, b) => (parseFloat(b.Rating) || 0) - (parseFloat(a.Rating) || 0))
-        .slice(0, 20); // show top 20 by default
+        .slice(0, 20);
     }
 
     return coursesData.filter((item) =>
-      item.Title?.toLowerCase().includes(searchLower) ||
-      item.Provider?.toLowerCase().includes(searchLower) ||
-      item.Skills?.toLowerCase().includes(searchLower)
+      item.Title?.toLowerCase().includes(courseLower) ||
+      item.Provider?.toLowerCase().includes(courseLower) ||
+      item.Skills?.toLowerCase().includes(courseLower)
     );
-  }, [searchLower]);
+  }, [courseLower]);
+
+  const filteredPapers = useMemo(() => {
+    if (!paperLower.trim()) return papersData;
+
+    return papersData.filter((paper) =>
+      paper.Title?.toLowerCase().includes(paperLower) ||
+      paper.Authors?.toLowerCase().includes(paperLower) ||
+      paper.Summary?.toLowerCase().includes(paperLower)
+    );
+  }, [paperLower]);
+
+  const paperSuggestions = useMemo(() => {
+    if (!paperLower.trim()) return [];
+    const all = new Set<string>();
+
+    papersData.forEach((item) => {
+      if (item.Title?.toLowerCase().includes(paperLower)) all.add(item.Title);
+      if (item.Authors?.toLowerCase().includes(paperLower)) all.add(item.Authors);
+    });
+
+    return Array.from(all).slice(0, 5);
+  }, [paperLower]);
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-8">
-      <div className="flex items-center gap-3 mb-8">
-        <BookOpen className="w-8 h-8 text-indigo-600" />
-        <h1 className="text-3xl font-bold text-gray-900">Course Catalog</h1>
+      {/* === Greeting Section === */}
+      <div className="mb-10 p-6 bg-gradient-to-r from-indigo-600 rounded-2xl text-white shadow-lg flex items-center justify-between">
+        <div>
+          <h1 className="text-3xl font-bold mb-1">Welcome to the Knowledge Catalog</h1>
+          <p className="text-lg">Find top-rated courses and explore cutting-edge research papers in tech.</p>
+        </div>
+        <Sparkles className="w-12 h-12 text-yellow-200 drop-shadow-lg" />
       </div>
 
-      {/* 🔎 Search Bar with Suggestions */}
-      <div className="bg-white rounded-lg shadow-md p-6 mb-8">
+      {/* === COURSES SECTION === */}
+      <div className="mb-12">
         <div className="flex items-center gap-2 mb-4">
-          <Search className="w-6 h-6 text-indigo-600" />
-          <h2 className="text-xl font-semibold">Find Courses</h2>
+          <BookOpen className="w-6 h-6 text-indigo-600" />
+          <h2 className="text-xl font-semibold">Courses Catalog</h2>
         </div>
-        <div className="relative">
+        <div className="relative mb-6">
           <input
             type="text"
-            placeholder="Search by title, provider, or skills..."
+            placeholder="Search courses..."
             className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-            onFocus={() => setShowSuggestions(true)}
-            onBlur={() => setTimeout(() => setShowSuggestions(false), 200)}
+            value={courseSearch}
+            onChange={(e) => setCourseSearch(e.target.value)}
+            onFocus={() => setShowCourseSuggestions(true)}
+            onBlur={() => setTimeout(() => setShowCourseSuggestions(false), 200)}
           />
-          {showSuggestions && suggestions.length > 0 && (
+          {showCourseSuggestions && courseSuggestions.length > 0 && (
             <div className="absolute z-10 mt-1 w-full bg-white border border-gray-200 rounded-lg shadow-lg">
               <ul className="py-1">
-                {suggestions.map((suggestion, index) => (
+                {courseSuggestions.map((suggestion, index) => (
                   <li
                     key={index}
                     className="px-4 py-2 hover:bg-indigo-50 cursor-pointer"
                     onMouseDown={() => {
-                      setSearchTerm(suggestion);
-                      setShowSuggestions(false);
+                      setCourseSearch(suggestion);
+                      setShowCourseSuggestions(false);
                     }}
                   >
                     {suggestion}
@@ -91,76 +111,126 @@ function ResearchAssistant() {
             </div>
           )}
         </div>
+
+        <div className="flex gap-6 overflow-x-auto pb-4">
+          {filteredCourses.length > 0 ? (
+            filteredCourses.map((item, index) => (
+            <div
+              key={index}
+              className="min-w-[300px] bg-white rounded-lg shadow-md hover:shadow-lg hover:ring-2 hover:ring-indigo-400 transform hover:scale-105 transition-all duration-200 ease-in-out overflow-hidden"
+            >
+                  {item['Image URL'] && (
+                  <img
+                    src={item['Image URL']}
+                    alt={item.Title}
+                    className="w-full h-48 object-cover"
+                    onError={(e) => {
+                      e.currentTarget.src = 'https://via.placeholder.com/400x225?text=Course+Image';
+                    }}
+                  />
+                )}
+                <div className="p-6">
+                  <div className="flex justify-between items-start mb-2">
+                    <h2 className="text-lg font-semibold text-gray-900 line-clamp-2">{item.Title}</h2>
+                    {item.Rating && (
+                      <span className="flex items-center bg-indigo-100 text-indigo-800 px-2 py-1 rounded-full text-sm">
+                        <Star className="w-4 h-4 mr-1" />
+                        {item.Rating}
+                      </span>
+                    )}
+                  </div>
+                  <p className="text-sm text-gray-600 mb-2">By {item.Provider}</p>
+                  <p className="text-sm text-gray-700 line-clamp-2">{item.Skills}</p>
+                  {item.Details && <p className="text-sm text-gray-600 mt-2 line-clamp-3">{item.Details}</p>}
+                  <div className="flex justify-between items-center mt-4">
+                    {item.Reviews && <span className="text-xs text-gray-500">{item.Reviews} reviews</span>}
+                    {item['Course Link'] && (
+                      <a
+                        href={item['Course Link']}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center text-indigo-600 hover:text-indigo-800 text-sm font-medium"
+                      >
+                        <LinkIcon className="w-4 h-4 mr-1" />
+                        View Course
+                      </a>
+                    )}
+                  </div>
+                </div>
+              </div>
+            ))
+          ) : (
+            <p className="text-gray-500">No courses found</p>
+          )}
+        </div>
       </div>
 
-      {/* 📚 Results */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {filteredResearch.length > 0 ? (
-          filteredResearch.map((item, index) => (
-            <div key={index} className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
-              {item['Image URL'] && (
-                <img
-                  src={item['Image URL']}
-                  alt={item.Title}
-                  className="w-full h-48 object-cover"
-                  onError={(e) => {
-                    e.currentTarget.src = 'https://via.placeholder.com/400x225?text=Course+Image';
-                  }}
-                />
-              )}
-              <div className="p-6">
-                <div className="flex justify-between items-start mb-2">
-                  <h2 className="text-lg font-semibold text-gray-900 line-clamp-2">{item.Title}</h2>
-                  {item.Rating && (
-                    <span className="flex items-center bg-indigo-100 text-indigo-800 px-2 py-1 rounded-full text-sm">
-                      <Star className="w-4 h-4 mr-1" />
-                      {item.Rating}
-                    </span>
-                  )}
-                </div>
+      {/* === PAPERS SECTION === */}
+      <div>
+        <div className="flex items-center gap-2 mb-4">
+          <FileText className="w-6 h-6 text-teal-600" />
+          <h2 className="text-xl font-semibold">Papers Catalog</h2>
+        </div>
+        <div className="relative mb-6">
+          <input
+            type="text"
+            placeholder="Search papers..."
+            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent"
+            value={paperSearch}
+            onChange={(e) => setPaperSearch(e.target.value)}
+            onFocus={() => setShowPaperSuggestions(true)}
+            onBlur={() => setTimeout(() => setShowPaperSuggestions(false), 200)}
+          />
+          {showPaperSuggestions && paperSuggestions.length > 0 && (
+            <div className="absolute z-10 mt-1 w-full bg-white border border-gray-200 rounded-lg shadow-lg">
+              <ul className="py-1">
+                {paperSuggestions.map((suggestion, index) => (
+                  <li
+                    key={index}
+                    className="min-w-[300px] bg-white rounded-lg shadow-md hover:shadow-lg overflow-hidden transition-shadow p-6"
+                    onMouseDown={() => {
+                      setPaperSearch(suggestion);
+                      setShowPaperSuggestions(false);
+                    }}
+                  >
+                    {suggestion}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </div>
 
-                {item.Provider && (
-                  <p className="text-sm text-gray-600 mb-2">By {item.Provider}</p>
-                )}
-
-                {item.Skills && (
-                  <div className="mb-3">
-                    <p className="text-xs font-medium text-gray-500 uppercase mb-1">Skills</p>
-                    <p className="text-sm text-gray-700 line-clamp-2">{item.Skills}</p>
-                  </div>
-                )}
-
-                {item.Details && (
-                  <p className="text-sm text-gray-600 mb-4 line-clamp-3">{item.Details}</p>
-                )}
-
-                <div className="flex justify-between items-center">
-                  {item.Reviews && (
-                    <span className="text-xs text-gray-500">{item.Reviews} reviews</span>
-                  )}
-
-                  {item['Course Link'] && (
-                    <a
-                      href={item['Course Link']}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center text-indigo-600 hover:text-indigo-800 text-sm font-medium"
-                    >
+        <div className="flex gap-6 overflow-x-auto pb-4">
+          {filteredPapers.length > 0 ? (
+            filteredPapers.map((paper, index) => (
+                  <div
+                    key={index}
+                    className="min-w-[300px] bg-white rounded-lg shadow-md hover:shadow-lg hover:ring-2 hover:ring-teal-400 transform hover:scale-105 transition-all duration-200 ease-in-out overflow-hidden p-6"
+                  >
+                <h3 className="text-lg font-semibold text-gray-900 mb-1 line-clamp-2">{paper.Title}</h3>
+                <p className="text-sm text-gray-600 mb-1">{paper.Authors}</p>
+                <p className="text-xs text-gray-500 mb-3">Published: {paper.Published}</p>
+                <p className="text-sm text-gray-700 line-clamp-4 mb-3">{paper.Summary}</p>
+                <div className="flex justify-between items-center mt-auto">
+                  {paper.Link && (
+                    <a href={paper.Link} target="_blank" rel="noopener noreferrer" className="text-sm text-teal-600 hover:text-teal-800 flex items-center">
                       <LinkIcon className="w-4 h-4 mr-1" />
-                      View Course
+                      Abstract
+                    </a>
+                  )}
+                  {paper['PDF Link'] && (
+                    <a href={paper['PDF Link']} target="_blank" rel="noopener noreferrer" className="text-sm text-teal-600 hover:text-teal-800 ml-4">
+                      PDF
                     </a>
                   )}
                 </div>
               </div>
-            </div>
-          ))
-        ) : (
-          <div className="col-span-full text-center py-12">
-            <p className="text-gray-500">
-              {searchTerm ? 'No matching results found' : 'Browse our top courses below'}
-            </p>
-          </div>
-        )}
+            ))
+          ) : (
+            <p className="text-gray-500">No papers found</p>
+          )}
+        </div>
       </div>
     </div>
   );

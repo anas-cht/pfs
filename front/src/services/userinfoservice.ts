@@ -15,3 +15,7 @@ export const createuserinfo = (userinfo: Userinfo) => {
  export const getuserinfo =(id:number)=>{
     return axios.get(`http://localhost:8080/api/usersinfo/getuserinfo/${id}`);
  };
+
+ export const getrecommendedcarrer=(id:number)=>{
+    return axios.get(`http://localhost:8080/api/userinfo/recommend/${id}`);
+ };
