@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.annotation.RestController;
 
 
-@AllArgsConstructor
+
 @RestController
 @RequestMapping("/api/usersinfo")
 @CrossOrigin(origins = "http://localhost:5173")
@@ -22,6 +22,12 @@ public class userinfocontroller {
     private userinfoserviceimpl uisv;
     private final Userinforepository userinforepository;
     private final AIJobRecommendationService aiService;
+
+    public userinfocontroller(Userinforepository userinforepository, AIJobRecommendationService aiService, userinfoserviceimpl uisv) {
+        this.userinforepository = userinforepository;
+        this.aiService = aiService;
+        this.uisv = uisv;
+    }
 
     @PostMapping("/adduserinfo")
     public ResponseEntity<userinfodto> createUser(@RequestBody userinfodto userinfodto) {
@@ -32,6 +38,7 @@ public class userinfocontroller {
     @GetMapping("/getuserinfo/{userid}")
     public ResponseEntity<userinfodto> getUserinfoByUserId(@PathVariable Long userid) {
         userinfodto userinfodto = uisv.getUserinfoByUserId(userid);
+//        System.out.println(userinfodto.getSkills());
         return ResponseEntity.ok(userinfodto);
     }
 
@@ -39,7 +46,7 @@ public class userinfocontroller {
     public ResponseEntity<userinfodto> recommendCareer(@PathVariable Long userId) {
         Userinfo userinfo = userinforepository.findByUserId(userId)
                 .orElseThrow(() -> new resourcenotfoundexception("User not found"));
-
+//        System.out.println("controller used");
         userinfodto result = aiService.getRecommendations(userinfo);
         return ResponseEntity.ok(result);
     }

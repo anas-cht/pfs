@@ -21,6 +21,10 @@ public class userinfodto {
     private Map<String, Double> careerScores;
     private List<JobMatch> jobMatches;
 
-    public userinfodto(Long id, String interests, String skills, Long id1) {
+    public userinfodto(Long id, String interests, String skills, Long userid) {
+        this.id = id;
+        this.interests = interests;
+        this.skills = skills;
+        this.userid = userid;
     }
 }

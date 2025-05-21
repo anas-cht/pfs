@@ -33,6 +33,8 @@ public class User {
     private List<Message> messages;
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private Userinfo userinfo;
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Course> courses ;
 
     public void addMessage(Message message) {
         messages.add(message);

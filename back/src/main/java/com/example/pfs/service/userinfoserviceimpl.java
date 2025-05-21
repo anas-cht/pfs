@@ -53,7 +53,7 @@ public class userinfoserviceimpl implements userinfoservice {
     public userinfodto getUserinfoByUserId(Long userid) {
         Userinfo userinfo = uir.findByUserId(userid)
                 .orElseThrow(() -> new resourcenotfoundexception("Userinfo not found"));
-
+//        System.out.println(userinfo.getSkills());
         return userinfomapper.mapuserinfotodto(userinfo);
     }
 

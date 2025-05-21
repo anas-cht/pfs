@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { User, Settings,Shield } from 'lucide-react';
+import { User, Settings,Shield,Star } from 'lucide-react';
 // import { useNavigate} from 'react-router-dom';
 import { useAuth } from '../context/authcontext';
 import { updateuser, updatepassword ,removeuser } from '../services/userservice';
 import axios, { AxiosError } from 'axios';
 import { useUserinfo } from '../context/userinfocontext';
+import { BookOpen } from 'lucide-react';
+import { getallcourses } from '../services/courseservice';
 
 
 interface UserData {
@@ -40,6 +42,9 @@ function Account() {
   const [activeTab, setActiveTab] = useState('profile');
   const { user, logout } = useAuth();
   const {userinfo} =useUserinfo();
+const [courses, setCourses] = useState<any[]>([]);
+const [coursesLoading, setCoursesLoading] = useState(false);
+const [coursesError, setCoursesError] = useState<string | null>(null);
   const [formData, setFormData] = useState<UserData>({
     id: 0,
     username: '',
@@ -70,6 +75,25 @@ function Account() {
   const [deleteError, setDeleteError] = useState<string | null>(null);
   const [isDeleting, setIsDeleting] = useState(false);
 
+
+  const fetchRatedCourses = async () => {
+    if (!user?.id) return;
+    try {
+      const response = await getallcourses(user.id);
+      setCourses(response.data);
+    }  catch (err) {
+      console.error('Failed to fetch courses:', err);
+      setCoursesError('Failed to load your rated courses. Please try again.');
+    } finally {
+      setCoursesLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    if (activeTab === 'courses' && user?.id) {
+      fetchRatedCourses();
+    }
+  }, [activeTab, user?.id]);
 
   // const navigate = useNavigate();
   useEffect(() => {
@@ -259,7 +283,7 @@ function Account() {
         {[
           { id: 'profile', label: 'Profile', icon: <User size={16} /> },
           { id: 'preferences', label: 'Preferences', icon: <Settings size={16} /> },
-          // { id: 'notifications', label: 'Notifications', icon: <Bell size={16} /> },
+          { id: 'courses', label: 'My Courses', icon: <BookOpen size={16} /> }, 
           { id: 'security', label: 'Security', icon: <Shield size={16} /> },
         ].map((tab) => {
           const showRedDot =
@@ -601,6 +625,55 @@ function Account() {
   </div>
 )}
 
+
+{activeTab === 'courses' && (
+  <div className="space-y-4">
+    <h3 className="text-lg font-medium">My Rated Courses</h3>
+    
+    {coursesLoading ? (
+      <div className="flex justify-center py-8">
+        <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-blue-500"></div>
+      </div>
+    ) : coursesError ? (
+      <div className="bg-red-50 border border-red-200 text-red-700 p-4 rounded">
+        {coursesError}
+        <button 
+          onClick={fetchRatedCourses}
+          className="ml-2 text-blue-600 hover:text-blue-800"
+        >
+          Retry
+        </button>
+      </div>
+    ) : courses.length === 0 ? (
+      <div className="bg-gray-50 border border-gray-200 text-gray-700 p-4 rounded">
+        You haven't rated any courses yet.
+      </div>
+    ) : (
+      <div className="space-y-4">
+        {courses.map((course) => (
+          <div 
+            key={course.id} 
+            className="bg-white border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow"
+          >
+            <div className="flex justify-between items-start">
+              <div>
+                <h4 className="font-medium text-lg">{course.title}</h4>
+                <p className="text-gray-600 text-sm">{course.editeur}</p>
+              </div>
+              <div className="flex items-center">
+                <Star className="w-4 h-4 text-yellow-500 fill-yellow-500" />
+                <span className="ml-1">{course.rating}</span>
+              </div>
+            </div>
+            <div className="mt-2 text-sm text-gray-500">
+              Rated on: {new Date(course.createdAt).toLocaleDateString()}
+            </div>
+          </div>
+        ))}
+      </div>
+    )}
+  </div>
+)}
     </div>
   );
 }

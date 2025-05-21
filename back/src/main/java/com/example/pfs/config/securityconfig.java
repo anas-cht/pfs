@@ -20,9 +20,7 @@ public class securityconfig {
         http
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/api/users/**").permitAll()
-                        .requestMatchers("/api/messages/**").permitAll()
-                        .requestMatchers("/api/usersinfo/**").permitAll()
+                        .requestMatchers("/api/**").permitAll()
                         .anyRequest().authenticated()
                 )
                 .cors(Customizer.withDefaults())
