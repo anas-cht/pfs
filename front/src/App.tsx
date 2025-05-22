@@ -21,6 +21,8 @@ import PrivateRoute from './context/privateroute';
 import ProtectedDashboardRoute from './context/signroute';
 
 import { UserinfoProvider } from './context/userinfocontext';
+import DocuMindAssistant from './pages/DocuMindAssistant';
+
 
 function App() {
   return (
@@ -43,6 +45,7 @@ function App() {
                 <Route path="/preferences" element={<Preferences />} />
                 <Route path="/signin" element={<ProtectedDashboardRoute ><SignIn /></ProtectedDashboardRoute >} />
                 <Route path="/signup" element={<ProtectedDashboardRoute ><SignUp /></ProtectedDashboardRoute>} />
+                <Route path="/documind" element={<DocuMindAssistant />} />
               </Routes>
             </div>
             <Footer />

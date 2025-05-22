@@ -14,6 +14,7 @@ const Navbar = () => {
     { path: '/career', label: 'AI Career Mentor', icon: User, description: 'Personalized career guidance with job market analysis.' },
     { path: '/planner', label: 'Smart Study Planner', icon: Calendar, description: 'AI-optimized scheduling integrated with your calendar.' },
     { path: '/collaborate', label: 'Collaboration Hub', icon: Users, description: 'Connect with students and mentors for projects.' },
+    { path: '/documind', label: 'DocuMind', icon: FileText, description: 'Chat with your PDF documents using AI assistance.' },
   ];
 
   const handleFeatureClick = (path: string) => {

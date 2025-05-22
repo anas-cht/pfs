@@ -24,13 +24,13 @@ const DocuMindChat: React.FC = () => {
 
   const handleChat = async () => {
     if (!question.trim()) return;
-    const newChat = [...chat, { role: "user", content: question }];
+    const newChat: Message[] = [...chat, { role: "user", content: question }];
     setChat(newChat);
     setQuestion("");
     setLoading(true);
     try {
       const response = await chatWithPdf(question, newChat);
-      setChat([...newChat, { role: "assistant", content: response.answer }]);
+      setChat([...newChat, { role: "assistant", content: response } as Message]);
     } catch (err) {
       alert("❌ Chat failed.");
     } finally {

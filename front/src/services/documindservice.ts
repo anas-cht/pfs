@@ -1,6 +1,6 @@
 // src/services/documindservice.ts
 import axios from 'axios';
-import { ChatMessage, ChatRequest } from '../types/chat';
+import { Message, ChatRequest } from '../types/chat';
 
 const BASE_URL = 'http://localhost:8080/api';
 
@@ -17,7 +17,7 @@ export const uploadPdf = async (file: File): Promise<string> => {
 };
 
 // Function for chatting with the PDF document
-export const chatWithPdf = async (question: string, history: ChatMessage[]): Promise<string> => {
+export const chatWithPdf = async (question: string, history: Message[]): Promise<string> => {
   const chatRequest: ChatRequest = { question, history };
 
   const response = await axios.post(`${BASE_URL}/chat`, chatRequest);
