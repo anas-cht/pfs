@@ -1,4 +1,5 @@
 package com.example.pfs.config;
+
 import com.example.pfs.service.Oauth2user;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -21,6 +22,12 @@ public class securityconfig {
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/api/**").permitAll()
+                        .requestMatchers("/api/users/**").permitAll()
+                        .requestMatchers("/api/messages/**").permitAll()
+                        .requestMatchers("/api/usersinfo/**").permitAll()
+                        .requestMatchers("/api/pdf/**").permitAll()
+                        .requestMatchers("/api/chat/**").permitAll()
+                        .requestMatchers("/chat/test-fastapi").permitAll()
                         .anyRequest().authenticated()
                 )
                 .cors(Customizer.withDefaults())
@@ -30,8 +37,8 @@ public class securityconfig {
                         )
                         .successHandler(customOAuth2SuccessHandler)
                 )
-                        .sessionManagement(session -> session
-                                .sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED)
+                .sessionManagement(session -> session
+                        .sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED)
                 );
 
         ; // ✅ Nouvelle méthode propre
