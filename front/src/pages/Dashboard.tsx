@@ -129,7 +129,7 @@ const Dashboard = () => {
       icon: Brain,
       path: '/career',
       color: 'bg-purple-500',
-      usage: 92,
+      usage: 100,
     },
     {
       title: 'Study Planner',
@@ -137,7 +137,7 @@ const Dashboard = () => {
       icon: Calendar,
       path: '/planner',
       color: 'bg-green-500',
-      usage: 78,
+      usage: 100,
     },
     {
       title: 'Resume Builder',
@@ -145,7 +145,7 @@ const Dashboard = () => {
       icon: FileText,
       path: '/resume',
       color: 'bg-yellow-500',
-      usage: 65,
+      usage: 100,
     },
     {
       title: 'Collaboration Hub',
@@ -153,7 +153,7 @@ const Dashboard = () => {
       icon: Users,
       path: '/collaborate',
       color: 'bg-pink-500',
-      usage: 70,
+      usage: 100,
     },
     {
       title: 'Research Assistant',
@@ -161,7 +161,15 @@ const Dashboard = () => {
       icon: Search,
       path: '/research',
       color: 'bg-indigo-500',
-      usage: 55,
+      usage: 100,
+    },
+    {
+      title: 'DocuMind',
+      description: 'Chat with your PDF documents using AI assistance',
+      icon: Search,
+      path: '/research',
+      color: 'bg-blue-500',
+      usage: 100,
     },
   ].sort((a, b) => b.usage - a.usage);
 
