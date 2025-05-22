@@ -11,3 +11,4 @@ const DocuMindAssistant: React.FC = () => {
 };
 
 export default DocuMindAssistant;
+

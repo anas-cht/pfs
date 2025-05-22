@@ -38,7 +38,7 @@ public class PdfServiceImpl implements PdfService {
 
             HttpEntity<MultiValueMap<String, Object>> requestEntity = new HttpEntity<>(body, headers);
 
-            String aiUrl = "http://localhost:8000/upload";
+            String aiUrl = "http://localhost:8001/upload";
             ResponseEntity<String> aiResponse = restTemplate.postForEntity(aiUrl, requestEntity, String.class);
 
             return aiResponse.getBody();
