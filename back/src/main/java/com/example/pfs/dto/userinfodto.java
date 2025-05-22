@@ -16,7 +16,6 @@ public class userinfodto {
     private String skills;
     private Long userid;
 
-    // + career + job_matches for response
     private String topCareer;
     private Map<String, Double> careerScores;
     private List<JobMatch> jobMatches;

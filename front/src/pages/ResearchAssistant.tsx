@@ -2,8 +2,9 @@ import React, { useState, useMemo, useEffect } from 'react';
 import { Star, BookOpen, FileText, Link as LinkIcon, Sparkles } from 'lucide-react';
 import coursesData from '../data/coursera_courses_detailed.json';
 import papersData from '../data/arxiv_it_research.json';
-import { addcourse, getallcourses } from '../services/courseservice';
+import { addcourse, getallcourses, getcoursesrecommandation } from '../services/courseservice';
 import { useAuth } from '../context/authcontext';
+import { useUserinfo } from '../context/userinfocontext';
 
 // Star Rating Component
 const StarRating = ({ rating, setRating, interactive = true }) => {
@@ -35,12 +36,31 @@ function ResearchAssistant() {
   const [paperRatings, setPaperRatings] = useState({});
   const [loading, setLoading] = useState(false);
   const [courses, setCourses] = useState<any[]>([]);
+  const [coursesrec, setCoursesrec] = useState<any[]>([]);
   const [coursesLoading, setCoursesLoading] = useState(false);
   const [coursesError, setCoursesError] = useState<string | null>(null);
   const [error, setError] = useState(null);
   const { user } = useAuth();
+  const {userinfo}=useUserinfo();
 
-  // Fetch previously rated courses from backend
+  useEffect(() => {
+    const getCoursesrec = async () => {
+      if (!userinfo) return;
+      try {
+        const response2 = await getcoursesrecommandation(userinfo) ;
+        setCoursesrec(response2.data);
+      } catch (err) {
+        console.error('Failed to fetch courses:', err);
+        setCoursesError('Failed to load your recommandation courses. Please try again.');
+      } finally {
+        setCoursesLoading(false);
+      }
+    };
+
+    getCoursesrec();
+  }, [userinfo]);
+
+
   useEffect(() => {
     const fetchRatedCourses = async () => {
       if (!user?.id) return;
@@ -212,6 +232,72 @@ function ResearchAssistant() {
         </div>
         <Sparkles className="w-12 h-12 text-yellow-200 drop-shadow-lg" />
       </div>
+
+       {/* Recommendations For You */}
+       {coursesrec.length > 0 && (
+        <div className="mb-12">
+          <div className="flex items-center gap-2 mb-4">
+            <Sparkles className="w-6 h-6 text-purple-600" />
+            <h2 className="text-xl font-semibold">Recommendations For You</h2>
+          </div>
+          <div className="flex gap-6 overflow-x-auto pb-4">
+            {coursesrec.map((item, index) => (
+              <div
+                key={`rec-${index}`}
+                className="min-w-[300px] bg-white rounded-lg shadow-md hover:shadow-lg hover:ring-2 hover:ring-purple-400 transform hover:scale-105 transition-all duration-200 ease-in-out overflow-hidden"
+              >
+                {item['Image URL'] && (
+                  <img
+                    src={item['Image URL']}
+                    alt={item.Title}
+                    className="w-full h-48 object-cover"
+                    onError={(e) => {
+                      e.currentTarget.src = 'https://via.placeholder.com/400x225?text=Course+Image';
+                    }}
+                  />
+                )}
+                <div className="p-6">
+                  <div className="flex justify-between items-start mb-2">
+                    <h2 className="text-lg font-semibold text-gray-900 line-clamp-2">{item.Title}</h2>
+                    {item.Rating && (
+                      <span className="flex items-center bg-purple-100 text-purple-800 px-2 py-1 rounded-full text-sm">
+                        <Star className="w-4 h-4 mr-1" />
+                        {item.Rating}
+                      </span>
+                    )}
+                  </div>
+                  <p className="text-sm text-gray-600 mb-2">By {item.Provider}</p>
+                  <p className="text-sm text-gray-700 line-clamp-2">{item.Skills}</p>
+                  {item.Details && <p className="text-sm text-gray-600 mt-2 line-clamp-3">{item.Details}</p>}
+
+                  <div className="mt-3">
+                    <p className="text-xs text-gray-500 mb-1">Your rating:</p>
+                    <StarRating
+                      rating={courseRatings[item.Title] || 0}
+                      setRating={(rating) => handleCourseRating(item.Title, rating)}
+                    />
+                  </div>
+
+                  <div className="flex justify-between items-center mt-4">
+                    {item.Reviews && <span className="text-xs text-gray-500">{item.Reviews} reviews</span>}
+                    {item['Course Link'] && (
+                      <a
+                        href={item['Course Link']}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center text-purple-600 hover:text-purple-800 text-sm font-medium"
+                      >
+                        <LinkIcon className="w-4 h-4 mr-1" />
+                        View Course
+                      </a>
+                    )}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
 
       {/* Courses */}
       <div className="mb-12">
