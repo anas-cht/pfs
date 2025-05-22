@@ -28,6 +28,7 @@ public class securityconfig {
                         .requestMatchers("/api/pdf/**").permitAll()
                         .requestMatchers("/api/chat/**").permitAll()
                         .requestMatchers("/chat/test-fastapi").permitAll()
+                        .requestMatchers("/api/recommendations/hybrid").permitAll()
                         .anyRequest().authenticated()
                 )
                 .cors(Customizer.withDefaults())
