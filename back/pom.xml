@@ -138,6 +138,7 @@
 				</configuration>
 			</plugin>
 		</plugins>
+		<finalName>unisphere</finalName>
 	</build>
 
 </project>

@@ -9,13 +9,13 @@ import org.springframework.web.client.RestTemplate;
 
 @RestController
 @RequestMapping("/api/chat")
-@CrossOrigin(origins = "http://localhost:8001")
+@CrossOrigin(origins = "http://model2:8001")
 public class ChatController {
 
     private final RestTemplate restTemplate = new RestTemplate();
 
     @Value("${ai.api.url}")
-    private String aiApiUrl; // e.g., http://localhost:8001/chat
+    private String aiApiUrl; // e.g., http://model2:8001/chat
 
     @PostMapping
     public ResponseEntity<ChatResponse> chat(@RequestBody ChatRequest chatRequest) {

@@ -17,7 +17,7 @@ public class AIJobRecommendationService {
     private final RestTemplate restTemplate = new RestTemplate();
 
     public userinfodto getRecommendations(Userinfo userinfo) {
-        String url = "http://localhost:8000/recommend";
+        String url = "http://model1:8000/recommend";
 
         Map<String, Object> payload = new HashMap<>();
         payload.put("skills", List.of(userinfo.getSkills().split(",")));

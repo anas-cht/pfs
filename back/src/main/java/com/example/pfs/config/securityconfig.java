@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Lazy;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
@@ -28,7 +29,8 @@ public class securityconfig {
                         .requestMatchers("/api/pdf/**").permitAll()
                         .requestMatchers("/api/chat/**").permitAll()
                         .requestMatchers("/chat/test-fastapi").permitAll()
-                        .requestMatchers("/api/recommendations/hybrid").permitAll()
+                        .requestMatchers(HttpMethod.OPTIONS, "/api/recommendations/hybrid").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/api/recommendations/hybrid").permitAll()
                         .anyRequest().authenticated()
                 )
                 .cors(Customizer.withDefaults())

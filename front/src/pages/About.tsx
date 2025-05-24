@@ -1,7 +1,8 @@
 import React, {useState } from 'react';
-import { Info, Brain, Calendar, FileText, Users, Search } from 'lucide-react';
+import { Info, Brain, Calendar, FileText, Users, Search, Book } from 'lucide-react';
 import { useNavigate} from 'react-router-dom';
 import { creatmessage } from '../services/messageservice';
+import { chatWithPdf } from '../services/documindservice';
 
 function About() {
   const [message, setMessage] = useState('');
@@ -34,6 +35,11 @@ function About() {
       icon: Calendar,
       title: 'Intelligent Study Planning',
       description: 'Optimize your study schedule with AI-powered time management.',
+    },
+    {
+      icon: Book,
+      title: 'DocuMindd',
+      description: 'Chat with your PDF documents using AI assistance.',
     },
   ];
 

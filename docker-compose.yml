@@ -1,0 +1,69 @@
+# version: '3.8'
+
+services:
+  # ✅ Spring Boot Backend
+  backend:
+    build: ./back
+    ports:
+      - "8080:8080"
+    # depends_on:
+    #   db:
+    #     condition: service_healthy
+    # depends_on:
+    #   model1:
+    #     condition: service_healthy
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql-db-gptichigo-848c.b.aivencloud.com:26039/defaultdb?ssl-mode=REQUIRED
+      SPRING_DATASOURCE_USERNAME: avnadmin
+      SPRING_DATASOURCE_PASSWORD: AVNS_8kpzgQf0rFOw6S8wyaT
+
+  # ✅ React Frontend
+  frontend:
+    build: ./front
+    ports:
+      - "5173:80"  # React on port 5173, served by Nginx
+    depends_on:
+      - backend
+
+  # ✅ FastAPI Model 1
+  model1:
+    build: ./API/career_recommender_api
+    ports:
+      - "8000:8000"
+    # healthcheck:
+    #   test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+    #   interval: 10s
+    #   retries: 5
+
+  # ✅ FastAPI Model 2
+  model2:
+    build: ./PDF-Interact
+    ports:
+      - "8001:8001"
+
+  # ✅ FastAPI Model 3
+  model3:
+    build: ./Recommendation-main
+    ports:
+      - "8002:8002"
+
+  # ✅ MySQL Database
+#   db:
+#     image: mysql:8
+#     environment:
+#       MYSQL_ROOT_PASSWORD: SqlRoot0000
+#       MYSQL_DATABASE: pfs
+#       MYSQL_USER: user
+#       MYSQL_PASSWORD: user
+#     ports:
+#       - "3307:3306"
+#     volumes:
+#       - mysql_data:/var/lib/mysql
+#     healthcheck:
+#       test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+#       interval: 5s
+#       timeout: 5s
+#       retries: 10
+
+# volumes:
+#   mysql_data:

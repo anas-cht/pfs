@@ -11,7 +11,7 @@ import org.springframework.http.*;
 public class RecommendationService {
 
     private final RestTemplate restTemplate = new RestTemplate();
-    private final String FASTAPI_URL = "http://localhost:8002/recommendations/hybrid";
+    private final String FASTAPI_URL = "http://model3:8002/recommendations/hybrid";
 
     public RecommendationResponse[] getHybridRecommendations(userinfodto dto) {
         // Build FastAPI-compatible request object

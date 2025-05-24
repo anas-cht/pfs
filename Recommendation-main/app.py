@@ -12,7 +12,7 @@ logging.basicConfig(level=logging.INFO)
 # Load data once at startup
 courses_df, ratings_df = load_data()
 print("Columns in ratings_df:", ratings_df.columns.tolist())
-
+print(ratings_df['UserID'].dtype)
 
 app = FastAPI()
 

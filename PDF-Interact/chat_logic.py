@@ -31,7 +31,9 @@ Answer:
 EMBEDDING_MODEL = HuggingFaceEmbeddings(
     model_name="sentence-transformers/all-MiniLM-L6-v2"
 )
-LANGUAGE_MODEL = OllamaLLM(model="mistral:latest")
+LANGUAGE_MODEL = OllamaLLM(
+    model="mistral:latest", base_url="http://host.docker.internal:11434"
+)
 
 DOCUMENT_VECTOR_DB = None
 

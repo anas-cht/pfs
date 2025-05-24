@@ -10,11 +10,11 @@ const Navbar = () => {
 
   const featureItems = [
     { path: '/research', label: 'Research Assistant', icon: Search, description: 'Get AI-powered recommendations for courses and research papers tailored to your goals and interests.' },
-    { path: '/resume', label: 'Resume Generator', icon: FileText, description: 'AI-generated ATS-friendly resumes and cover letters.' },
     { path: '/career', label: 'AI Career Mentor', icon: User, description: 'Personalized career guidance with job market analysis.' },
+    { path: '/documind', label: 'DocuMind', icon: FileText, description: 'Chat with your PDF documents using AI assistance.' },
+    { path: '/resume', label: 'Resume Generator', icon: FileText, description: 'AI-generated ATS-friendly resumes and cover letters.' },
     { path: '/planner', label: 'Smart Study Planner', icon: Calendar, description: 'AI-optimized scheduling integrated with your calendar.' },
     { path: '/collaborate', label: 'Collaboration Hub', icon: Users, description: 'Connect with students and mentors for projects.' },
-    { path: '/documind', label: 'DocuMind', icon: FileText, description: 'Chat with your PDF documents using AI assistance.' },
   ];
 
   const handleFeatureClick = (path: string) => {

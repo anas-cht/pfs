@@ -1,19 +1,6 @@
-FROM python:3.10-slim
-
+# Dockerfile in /ai-model-1 
+FROM python:3.11 AS model1
 WORKDIR /app
-
-COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
-
-COPY app/ ./app/
-
+COPY . .
+RUN pip install -r requirements.txt
 CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
-
-
-
-
-
-
-# Build & run:
-#     docker build -t career-api .
-#     docker run -p 8000:8000 career-api

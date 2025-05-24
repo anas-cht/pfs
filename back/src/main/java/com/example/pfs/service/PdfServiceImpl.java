@@ -27,7 +27,6 @@ public class PdfServiceImpl implements PdfService {
         try {
             String cleanFilename = Objects.requireNonNull(file.getOriginalFilename()).replaceAll("[^a-zA-Z0-9\\.\\-]", "_");
             Path temp = Files.createTempFile("doc_", "_" + cleanFilename);
-
             file.transferTo(temp.toFile());
 
             HttpHeaders headers = new HttpHeaders();
@@ -38,7 +37,8 @@ public class PdfServiceImpl implements PdfService {
 
             HttpEntity<MultiValueMap<String, Object>> requestEntity = new HttpEntity<>(body, headers);
 
-            String aiUrl = "http://localhost:8001/upload";
+            String aiUrl = "http://model2:8001/upload";
+            System.out.println("Forwarding PDF to: {}" + aiUrl);
             ResponseEntity<String> aiResponse = restTemplate.postForEntity(aiUrl, requestEntity, String.class);
 
             return aiResponse.getBody();

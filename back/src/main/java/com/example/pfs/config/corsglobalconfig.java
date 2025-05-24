@@ -14,7 +14,7 @@ public class corsglobalconfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration config = new CorsConfiguration();
-        config.setAllowedOrigins(List.of("http://localhost:5173")); // ✅ ton front React
+        config.setAllowedOrigins(List.of("http://localhost:5173")); // ✅ front React
         config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         config.setAllowedHeaders(List.of("*"));
         config.setAllowCredentials(true); // Important si tu envoies les cookies

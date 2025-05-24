@@ -45,6 +45,7 @@ class ChatRequest(BaseModel):
 async def chat(req: ChatRequest):
     try:
         answer = generate_response(req.question, req.history)
+        print("✅✅✅✅✅✅✅✅✅✅✅✅")
         return {"answer": answer}
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
