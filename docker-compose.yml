@@ -14,8 +14,8 @@ services:
     #     condition: service_healthy
     environment:
       SPRING_DATASOURCE_URL: jdbc:mysql://mysql-db-gptichigo-848c.b.aivencloud.com:26039/defaultdb?ssl-mode=REQUIRED
-      SPRING_DATASOURCE_USERNAME: avnadmin
-      SPRING_DATASOURCE_PASSWORD: AVNS_8kpzgQf0rFOw6S8wyaT
+      SPRING_DATASOURCE_USERNAME: 
+      SPRING_DATASOURCE_PASSWORD: 
 
   # ✅ React Frontend
   frontend:
