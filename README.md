@@ -1,10 +1,10 @@
-# 📚 pfs - Personalized Learning Platform Toolkit
+# 📚 UniSphere - Personalized Learning Platform Toolkit
 
-**pfs** is a powerful developer toolkit for building and deploying personalized educational platforms. It integrates a **Spring Boot** backend, a **React** frontend, and **FastAPI** models into a cohesive, scalable ecosystem.
+**UniSphere** is a powerful developer toolkit for building and deploying personalized educational platforms. It integrates a **Spring Boot** backend, a **React** frontend, and **FastAPI** models into a cohesive, scalable ecosystem.
 
 ---
 
-## ❓ Why pfs?
+## ❓ Why UniSphere?
 
 This project is designed to boost user engagement through **personalized learning experiences**. Key features include:
 
